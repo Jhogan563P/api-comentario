@@ -13,8 +13,7 @@ def lambda_handler(event, context):
     bucket_name = os.environ['BUCKET_NAME']
     table = dynamodb.Table(table_name)
 
-    # Parsear cuerpo JSON recibido por POST
-    body = json.loads(event['body'])
+    body = event['body']
     tenant_id = body.get('tenant_id')
     comentario = body.get('comentario')
 
